@@ -2,8 +2,8 @@
 
 public class Address
 {
-    public string AddressLine { get; set; }
-    public string City { get; set; }
+    public string AddressLine { get; set; } = "";
+    public string City { get; set; } = "";
     public int ZipCode { get; set; }
 
     public Address(string addressLine, string city, int zipCode)

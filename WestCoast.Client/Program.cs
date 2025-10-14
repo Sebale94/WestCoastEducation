@@ -28,7 +28,7 @@ class Program
         };
         Console.WriteLine("Lista över studeranade\n");
 
-        foreach (var p in new List<Person> { person })
+        foreach (var p in new List<Student> { person })
         {
             Console.WriteLine(person);
         }

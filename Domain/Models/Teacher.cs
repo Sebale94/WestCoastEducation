@@ -1,10 +1,10 @@
 ﻿namespace Domain.Models;
 
-public class Teacher : Person
+public class Teacher : Student
 
 {
-    public string Knowledge { get; set; }
-    public string Responsible { get; set; }
+    public string Knowledge { get; set; } = "";
+    public string Responsible { get; set; } = "";
 
     public Teacher()
     {

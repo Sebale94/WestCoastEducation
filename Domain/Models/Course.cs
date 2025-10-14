@@ -2,11 +2,11 @@
 
 public class Course
 {
-    public string Titel { get; set; }
+    public string Titel { get; set; } = "";
     public bool Classroom { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public string Lenght { get; set; }
+    public string Lenght { get; set; } = "";
     readonly IList <Course> Courses = [];
 
     public Course(string titel, bool classroom, DateTime startdate, DateTime enddate, string lenght)
