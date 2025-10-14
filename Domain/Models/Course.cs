@@ -4,8 +4,8 @@ public class Course
 {
     public string Titel { get; set; }
     public bool Classroom { get; set; }
-    public DateTime Startdate { get; set; }
-    public DateTime Enddate { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
     public string Lenght { get; set; }
     readonly IList <Course> Courses = [];
 
@@ -13,8 +13,8 @@ public class Course
     {
         Titel = titel;
         Classroom = classroom;
-        Startdate = startdate;
-        Enddate = enddate;
+        StartDate = startdate;
+        EndDate = enddate;
         Lenght = lenght;
     }
 
@@ -25,10 +25,10 @@ public class Course
 
     public override string ToString()
     {
-        return $"Kursens namn: {Titel}\n" +
-        $"Klassrum: {(Classroom ? "Ja" : "Nej")}\n" +
-        $"Startdatum: {Startdate.ToShortDateString()}\n" +
-        $"Slutdatum: {Enddate.ToShortDateString()}\n" +
-        $"Längd: {Lenght}\n";
+        return $"Kursnamn: {Titel}\n" +
+        $"Klassrum: {Classroom}\n" +
+        $"Startdatum: {StartDate}\n" +
+        $"Slutdatum: {EndDate}\n" +
+        $"Kurs Längd:{Lenght}\n";
     }
 }

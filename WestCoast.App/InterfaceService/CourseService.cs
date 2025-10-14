@@ -10,7 +10,7 @@ namespace WestCoast.App.InterfaceService;
 public class CourseService(string path): ICourse
 {
     private readonly string _path = path;
-    private readonly FileStorage _jsonStorage = new();
+    private readonly FileStorage _fileStorage = new();
     private readonly JsonSerializerOptions _options = new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -27,14 +27,15 @@ public class CourseService(string path): ICourse
 
     public Course GetCourse()
     {
-        var json = _jsonStorage.Read(_path);
+        var json = _fileStorage.Read(_path);
         var course = JsonSerializer.Deserialize<Course>(json, _options);
         return course ?? new Course();
     }
 
-    public void SaveCourses(string courses)
+    public void SaveCourses(Course course)
     {
-        var json = JsonSerializer.Serialize(courses, _options);
-        _jsonStorage.WriteJson<Course>(_path, json);
+        var json = JsonSerializer.Serialize(course, _options);
+        _fileStorage.WriteJson(_path, json);
     }
+    
 }

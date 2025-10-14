@@ -1,12 +1,14 @@
 ﻿namespace Domain.Models;
 
-public abstract class Person
+public class Person
 {
-    protected string FirstName { get; set; }
-    protected string LastName { get; set; }
-    protected string PhoneNumber { get; set; }
-    protected string PersonNummer { get; set; }
-    Address? Address { get; set; }
+    public Address Address { get; set; } = new Address();
+    public string FirstName { get; set; }
+    public string LastName { get; set; } 
+    public string PhoneNumber { get; set; } 
+    public string PersonNummer { get; set; }
+
+    public Person() { }
 
     public Person(string firstName, string lastName, string phoneNumber, string personNummer)
     {
@@ -20,9 +22,9 @@ public abstract class Person
     {
         return $"Förnamn: {FirstName}\n" +
         $"Efternamn: {LastName}\n" +
-        $"Adress: {Address}\n" +
         $"Telefonnummer: {PhoneNumber}\n" +
-        $"Personnummer: {PersonNummer}\n";
-      
+        $"Personnummer: {PersonNummer}\n" +
+        $"Adress: {Address}\n";
     }
 }
+   
