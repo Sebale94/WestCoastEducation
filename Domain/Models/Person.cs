@@ -2,10 +2,10 @@
 
 public abstract class Person
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string PhoneNumber { get; set; }
-    public string PersonNummer { get; set; }
+    protected string FirstName { get; set; }
+    protected string LastName { get; set; }
+    protected string PhoneNumber { get; set; }
+    protected string PersonNummer { get; set; }
     Address? Address { get; set; }
 
     public Person(string firstName, string lastName, string phoneNumber, string personNummer)
@@ -14,5 +14,15 @@ public abstract class Person
         LastName = lastName;
         PhoneNumber = phoneNumber;
         PersonNummer = personNummer;
+    }
+
+    public override string ToString()
+    {
+        return $"Förnamn: {FirstName}\n" +
+        $"Efternamn: {LastName}\n" +
+        $"Adress: {Address}\n" +
+        $"Telefonnummer: {PhoneNumber}\n" +
+        $"Personnummer: {PersonNummer}\n";
+      
     }
 }

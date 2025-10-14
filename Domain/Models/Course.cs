@@ -7,7 +7,7 @@ public class Course
     public DateTime Startdate { get; set; }
     public DateTime Enddate { get; set; }
     public string Lenght { get; set; }
-    List<Course> Courses = [];
+    readonly IList <Course> Courses = [];
 
     public Course(string titel, bool classroom, DateTime startdate, DateTime enddate, string lenght)
     {
@@ -17,6 +17,11 @@ public class Course
         Enddate = enddate;
         Lenght = lenght;
     }
+
+    public Course()
+    {
+    }
+    
 
     public override string ToString()
     {
