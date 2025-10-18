@@ -7,7 +7,7 @@ public class Course
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string Lenght { get; set; } = "";
-    List<Course> Courses { get; set; } = [];
+    public List<Course> Courses { get; set; } = [];
     
 
 
