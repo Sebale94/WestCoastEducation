@@ -5,7 +5,7 @@ namespace WestCoast.App.Interfaces;
 public interface ICourse
 {
     string FetchCourses();
-    void SaveCourses(Course course);
+    void SaveCourses(IList<Course> courses);
     Course GetCourse();
   
       

@@ -7,7 +7,7 @@ public class Student
     public string LastName { get; set; } = "";
     public string PhoneNumber { get; set; } = "";
     public string PersonNummer { get; set; } = "";
-    public List<Student> Students { get; set; } = [];
+    public IList<Course> Courses { get; set; } = [];
 
     public Student() { }
 
@@ -28,7 +28,7 @@ public class Student
         $"Efternamn: {LastName}\n" +
         $"Telefonnummer: {PhoneNumber}\n" +
         $"Personnummer: {PersonNummer}\n" +
-        $"Adress: {Address}\n";
+        $"{Address}\n";
     }
 }
 

@@ -7,17 +7,21 @@ public class Course
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string Lenght { get; set; } = "";
-    public List<Course> Courses { get; set; } = [];
+    public string Teacher { get; set; } = "";
+    public string Grade { get; set; } = "";
+   
     
 
 
-    public Course(string titel, bool classroom, DateTime startdate, DateTime enddate, string lenght)
+    public Course(string titel, bool classroom, DateTime startdate, DateTime enddate, string lenght, string teacher, string grade)
     {
         Titel = titel;
         Classroom = classroom;
         StartDate = startdate;
         EndDate = enddate;
         Lenght = lenght;
+        Teacher = teacher;
+        Grade = grade;
     }
 
 
@@ -34,7 +38,9 @@ public class Course
         $"Klassrum: {Classroom}\n" +
         $"Startdatum: {StartDate}\n" +
         $"Slutdatum: {EndDate}\n" +
-        $"Kurs Längd:{Lenght}\n";
+        $"Kurs Längd:{Lenght}\n" +
+        $"Lärare: {Teacher}\n" +
+        $"Kurs betyg: {Grade}\n";
     }
 
 

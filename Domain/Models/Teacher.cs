@@ -10,7 +10,7 @@ public class Teacher : Student
     {
     }
 
-    public Teacher(string firstName, string lastName, string phoneNumber, string personNummer, string knowledge, string responsible) : 
+    public Teacher(string firstName, string lastName, string phoneNumber, string personNummer, string knowledge, string responsible) :
     base(firstName, lastName, phoneNumber, personNummer)
     {
         Knowledge = knowledge;
@@ -19,7 +19,7 @@ public class Teacher : Student
 
     public override string ToString()
     {
-        return $"{Knowledge}\n" +
-        $"{Responsible}\n";
+        return $"Kunskapsområde: {Knowledge}\n" +
+        $"Ansvarsområde: {Responsible}\n";
     }
 }

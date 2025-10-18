@@ -32,12 +32,11 @@ public class CourseService(string path): ICourse
         return course ?? new Course();
     }
 
-    public void SaveCourses(Course course)
+    public void SaveCourses(IList<Course> courses)
     {
-        var json = JsonSerializer.Serialize(course, _options);
+        var json = JsonSerializer.Serialize(courses, _options);
         _fileStorage.WriteJson(_path, json);
     }
-
-   
+    
     
 }

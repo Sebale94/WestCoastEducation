@@ -13,11 +13,45 @@ class Program
         CourseService courseService =
            new($"{Environment.CurrentDirectory}/Data/CourseInfo.json");
 
+        IList<Course> courses =
 
+        [
+            new Course
+            {
+                Titel = "Programmering 1",
+                Classroom = true,
+                StartDate = new DateTime(2024, 09, 01),
+                EndDate = new DateTime(2025, 01, 15),
+                Lenght = "20 veckor",
+                Teacher = "Olga Jönsson",
+                Grade = "VG"
+            },
 
+            new Course
+            {
+                Titel = "Webbutveckling 1",
+                Classroom = false,
+                StartDate = new DateTime(2024, 09, 01),
+                EndDate = new DateTime(2025, 01, 15),
+                Lenght = "20 veckor",
+                Teacher = "Olga Jönsson",
+                Grade = "G"
+            },
 
-        List<Student> students = new()
+        ];
+
+        Console.WriteLine("On-Demand kurser\n");
+        
+        
+        foreach (var c in courses)
         {
+            Console.WriteLine(c);
+            courseService.SaveCourses(courses);
+        }
+
+
+        List<Student> students =
+        [
             new Student
             {
                 FirstName = "Sebastian",
@@ -28,7 +62,8 @@ class Program
                 {
                     AddressLine = "Stora Herrestad",
                     City = "Ystad",
-                    ZipCode = 27155
+                    ZipCode = 27155,
+                    Email = "Sebastian.aleryd@gmail.com",
                 }
             },
             new Student
@@ -41,15 +76,18 @@ class Program
                 {
                     AddressLine = "Kungsgatan 12",
                     City = "Stockholm",
-                    ZipCode = 11122
+                    ZipCode = 11122,
+                    Email = "Anna.Lind@gmail.com",
                 }
             }
-        };
-        
+        ];
+
         Console.WriteLine("Lista över Studenter\n");
-        foreach (var student in students)
+        
+        
+        foreach (var s in students)
         {
-            Console.WriteLine(student);
+            Console.WriteLine(s);
         }
        
         
@@ -61,34 +99,38 @@ class Program
             LastName = "Jönsson",
             PersonNummer = "1967-10-01",
             PhoneNumber = "07399666787",
-            Responsible = "Matte",
-            Knowledge = "Matte,idrott",
-                
-                Address = new Address
-                {
-                    AddressLine = "Stora Herrestad",
-                    City = "Ystad",
-                    ZipCode = 27155
-                }
+            Responsible = "programmering",
+            Knowledge = "Matte,programmering",
+            
+            Address = new Address
+            {
+                AddressLine = "Stora Herrestad",
+                City = "Ystad",
+                ZipCode = 27155,
+                Email = "Olga.Jönsson@gmail.com",
+
+            }
         };
 
         Admin admin = new Admin()
-         {
-             FirstName = "Nisse",
-             LastName = "Erlandsson",
-             PersonNummer = "1956-10-01",
-             PhoneNumber = "0739532935",
-             Responsible = "Träsöjd",
-             Knowledge = "Idrott,Träslöjd",
-             HireDate = new DateTime(2025, 10, 1),
+        {
+            FirstName = "Nisse",
+            LastName = "Erlandsson",
+            PersonNummer = "1956-10-01",
+            PhoneNumber = "0739532935",
+            Responsible = "Träsöjd",
+            Knowledge = "Idrott,Träslöjd",
+            HireDate = new DateTime(2025, 10, 1),
+            
 
-             Address = new Address
-             {
-                 AddressLine = "Stora Herrestad",
-                 City = "Ystad",
-                 ZipCode = 27155
-             }
-         };
+            Address = new Address
+            {
+                AddressLine = "Stora Herrestad",
+                City = "Ystad",
+                ZipCode = 27155,
+                Email = "Nisse.Erlandsson@gmail.com",
+            }
+        };
 
         Leader leader = new Leader()
         {
@@ -99,49 +141,23 @@ class Program
             Responsible = "Syslöjd",
             Knowledge = "Svenska,Syslöjd",
             HireDate = new DateTime(1994, 01, 01),
+            
 
-                Address = new Address
-                {
-                    AddressLine = "Stora Herrestad",
-                    City = "Ystad",
-                    ZipCode = 27155
-                }
+            Address = new Address
+            {
+                AddressLine = "Stora Herrestad",
+                City = "Ystad",
+                ZipCode = 27155,
+                Email = "Kalle.Andersson@gmail.com",
+            }
         };
 
 
 
-        List<Course> courses = new()
-        {
-            new Course
-            {
-                Titel = "Programmering 1",
-                Classroom = true,
-                StartDate = new DateTime(2024, 09, 01),
-                EndDate = new DateTime(2025, 01, 15),
-                Lenght = "20 veckor"
-            },
-            new Course
-            {
-                Titel = "Webbutveckling 1",
-                Classroom = false,
-                StartDate = new DateTime(2024, 09, 01),
-                EndDate = new DateTime(2025, 01, 15),
-                Lenght = "20 veckor"
-            },
-
-        };
-        
-        Console.WriteLine("Lista över Kurser\n");
-        foreach (var course in courses)
-        {
-            Console.WriteLine(course);
-        }
-
-
-
-        courseService.SaveCourses(courses[0]);
+       
         
 
-        
+
+
     }
 }

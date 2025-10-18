@@ -1,4 +1,6 @@
-﻿namespace Domain.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain.Models;
 
 public class Admin : Teacher
 {
@@ -15,6 +17,6 @@ public class Admin : Teacher
 
     public override string ToString()
     {
-        return $"{HireDate.ToShortDateString()}\n";
+        return $"Anställningsdatum: {HireDate.ToShortDateString()}\n";
     }
 }

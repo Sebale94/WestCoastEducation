@@ -15,7 +15,7 @@ public class Leader:Teacher
 
     public override string ToString()
     {
-        return $"{HireDate.ToShortDateString()}\n";
+        return $"Anställningsdatum: {HireDate.ToShortDateString()}\n";
     }
     
 }
