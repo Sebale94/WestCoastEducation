@@ -14,7 +14,7 @@ public class FileStorage: IStorage
         File.WriteAllText(path, data);
     }
 
-    public string Read(string path)
+    public string ReadJson(string path)
     {
         return File.ReadAllText(path);
     }

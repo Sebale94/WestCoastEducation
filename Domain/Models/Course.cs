@@ -7,7 +7,9 @@ public class Course
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string Lenght { get; set; } = "";
-    readonly IList <Course> Courses = [];
+    List<Course> Courses { get; set; } = [];
+    
+
 
     public Course(string titel, bool classroom, DateTime startdate, DateTime enddate, string lenght)
     {
@@ -18,9 +20,12 @@ public class Course
         Lenght = lenght;
     }
 
+
     public Course()
     {
     }
+
+
     
 
     public override string ToString()
@@ -31,4 +36,6 @@ public class Course
         $"Slutdatum: {EndDate}\n" +
         $"Kurs Längd:{Lenght}\n";
     }
+
+
 }

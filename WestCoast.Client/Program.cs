@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using WestCoast.App.InterfaceService;
 using Persistance.Storages;
+using System.IO.Pipes;
 namespace WestCoast.Client;
 
 class Program
@@ -8,33 +9,53 @@ class Program
     static void Main()
     {
 
-         CourseService courseService =
-            new($"{Environment.CurrentDirectory}/Data/CourseInfo.json");
+
+        CourseService courseService =
+           new($"{Environment.CurrentDirectory}/Data/CourseInfo.json");
 
 
-        var person = new Student()
+
+
+        List<Student> students = new()
         {
-            FirstName = "Sebastian",
-            LastName = "Aleryd",
-            PersonNummer = "1994-10-21",
-            PhoneNumber = "07399666787",
-
-            Address = new Address
+            new Student
             {
-                AddressLine = "Stora Herrestad",
-                City = "Ystad",
-                ZipCode = 27155
+                FirstName = "Sebastian",
+                LastName = "Aleryd",
+                PersonNummer = "1994-10-21",
+                PhoneNumber = "07399666787",
+                Address = new Address
+                {
+                    AddressLine = "Stora Herrestad",
+                    City = "Ystad",
+                    ZipCode = 27155
+                }
+            },
+            new Student
+            {
+                FirstName = "Anna",
+                LastName = "Lind",
+                PersonNummer = "1996-03-15",
+                PhoneNumber = "0701234567",
+                Address = new Address
+                {
+                    AddressLine = "Kungsgatan 12",
+                    City = "Stockholm",
+                    ZipCode = 11122
+                }
             }
         };
-        Console.WriteLine("Lista över studeranade\n");
-
-        foreach (var p in new List<Student> { person })
+        
+        Console.WriteLine("Lista över Studenter\n");
+        foreach (var student in students)
         {
-            Console.WriteLine(person);
+            Console.WriteLine(student);
         }
+       
+        
 
     
-        var person1 = new Teacher ()
+        Teacher teacher = new Teacher ()
         {
             FirstName = "Olga",
             LastName = "Jönsson",
@@ -51,25 +72,25 @@ class Program
                 }
         };
 
-        var person2 = new Admin()
-        {
-            FirstName = "Nisse",
-            LastName = "Erlandsson",
-            PersonNummer = "1956-10-01",
-            PhoneNumber = "0739532935",
-            Responsible = "Träsöjd",
-            Knowledge = "Idrott,Träslöjd",
-            HireDate = new DateTime(2025, 10, 1),
+        Admin admin = new Admin()
+         {
+             FirstName = "Nisse",
+             LastName = "Erlandsson",
+             PersonNummer = "1956-10-01",
+             PhoneNumber = "0739532935",
+             Responsible = "Träsöjd",
+             Knowledge = "Idrott,Träslöjd",
+             HireDate = new DateTime(2025, 10, 1),
 
-                Address = new Address
-                {
-                    AddressLine = "Stora Herrestad",
-                    City = "Ystad",
-                    ZipCode = 27155
-                }
-        };
+             Address = new Address
+             {
+                 AddressLine = "Stora Herrestad",
+                 City = "Ystad",
+                 ZipCode = 27155
+             }
+         };
 
-        var person3 = new Leader()
+        Leader leader = new Leader()
         {
             FirstName = "Kalle",
             LastName = "Andersson",
@@ -89,26 +110,36 @@ class Program
 
 
 
-        var course = new Course()
+        List<Course> courses = new()
         {
-            Titel = "C#",
-            Classroom = true,
-            StartDate = new DateTime(2024, 10, 01),
-            EndDate = new DateTime(2025, 06, 01),
-            Lenght = "9 Månader"
-
+            new Course
+            {
+                Titel = "Programmering 1",
+                Classroom = true,
+                StartDate = new DateTime(2024, 09, 01),
+                EndDate = new DateTime(2025, 01, 15),
+                Lenght = "20 veckor"
+            },
+            new Course
+            {
+                Titel = "Webbutveckling 1",
+                Classroom = false,
+                StartDate = new DateTime(2024, 09, 01),
+                EndDate = new DateTime(2025, 01, 15),
+                Lenght = "20 veckor"
+            },
 
         };
         
         Console.WriteLine("Lista över Kurser\n");
-
-        foreach (var c in new List<Course> { course })
+        foreach (var course in courses)
         {
             Console.WriteLine(course);
         }
 
+
         
-        courseService.SaveCourses(course);
+        courseService.SaveCourses(courses[0]);
         
 
         

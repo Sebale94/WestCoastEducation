@@ -22,12 +22,12 @@ public class CourseService(string path): ICourse
     public string FetchCourses()
     {
         FileStorage fileStorage = new();
-        return fileStorage.Read(_path);
+        return fileStorage.ReadJson(_path);
     }
 
     public Course GetCourse()
     {
-        var json = _fileStorage.Read(_path);
+        var json = _fileStorage.ReadJson(_path);
         var course = JsonSerializer.Deserialize<Course>(json, _options);
         return course ?? new Course();
     }
@@ -37,5 +37,7 @@ public class CourseService(string path): ICourse
         var json = JsonSerializer.Serialize(course, _options);
         _fileStorage.WriteJson(_path, json);
     }
+
+   
     
 }
